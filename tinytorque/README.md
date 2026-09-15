@@ -6,6 +6,10 @@ Copy `.env.example` to `.env.local` and add the Project URL and publishable key 
 
 Phase 2 adds cookie-based Supabase clients for browser and server code plus `proxy.ts` for refreshing sessions. Authentication pages are the next phase.
 
+## Database migrations
+
+Phase 4 adds `supabase/migrations/202609150001_create_store_schema.sql`. Apply it from the Supabase SQL Editor for a manual setup, or use the Supabase CLI migration workflow when the project is linked.
+
 ## Getting Started
 
 First, run the development server:
