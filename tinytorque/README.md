@@ -10,6 +10,10 @@ Phase 2 adds cookie-based Supabase clients for browser and server code plus `pro
 
 Phase 4 adds `supabase/migrations/202609150001_create_store_schema.sql`. Apply it from the Supabase SQL Editor for a manual setup, or use the Supabase CLI migration workflow when the project is linked.
 
+## Checkout setup
+
+Phase 6 adds `/checkout` and `POST /api/orders`. Add `SUPABASE_SERVICE_ROLE_KEY` to `.env.local` for server-only order creation. Never expose or commit this key. Payment processing is intentionally left for the next phase.
+
 ## Getting Started
 
 First, run the development server:

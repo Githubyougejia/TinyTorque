@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 
 type Product = { id: string; name: string; caption: string; price: number; tone: string; badge?: string };
 const products: Product[] = [
@@ -13,9 +14,15 @@ const products: Product[] = [
 function PixelFace({ mood = "•‿•" }: { mood?: string }) { return <div className="pixel-face" aria-hidden="true"><span>{mood}</span></div>; }
 
 export default function Home() {
+  const router = useRouter();
   const [cart, setCart] = useState<Product[]>([]);
   const [notice, setNotice] = useState("");
-  const addToCart = (product: Product) => { setCart((items) => items.concat(product)); setNotice(product.name + " is in your cart."); };
+  const addToCart = (product: Product) => {
+    const nextCart = cart.concat(product);
+    setCart(nextCart);
+    window.localStorage.setItem("tiny-torque-cart", JSON.stringify(nextCart));
+    setNotice(product.name + " is in your cart.");
+  };
   const submitSignup = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setNotice("You’re on the Tiny Torque list."); event.currentTarget.reset(); };
   return (
     <main>
@@ -23,7 +30,7 @@ export default function Home() {
       <header className="site-header">
         <button className="menu-button" aria-label="Open menu">☰ <span>MENU</span></button>
         <a className="logo" href="#top">TINY<br /><em>TORQUE</em></a>
-        <button className="cart-button" onClick={() => setNotice(cart.length ? String(cart.length) + " item" + (cart.length === 1 ? "" : "s") + " in your cart." : "Your cart is empty — let’s fix that.")}>CART <span>{cart.length}</span></button>
+        <button className="cart-button" onClick={() => cart.length ? router.push("/checkout") : setNotice("Your cart is empty — let’s fix that.")}>CART <span>{cart.length}</span></button>
       </header>
       <nav className="category-nav" aria-label="Categories"><a href="#shop">DASH GOODS</a><a href="#shop">LIGHTS</a><a href="#shop">KEYS & TAGS</a><a href="#shop">GARAGE</a><a href="#story">THE STORY</a></nav>
       <section className="hero" id="top">
