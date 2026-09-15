@@ -1,0 +1,74 @@
+.page {
+  min-height: 100vh;
+  background: #fff9e8;
+  color: #101010;
+}
+
+.top {
+  height: 97px;
+  padding: 0 5vw;
+  border-bottom: 2px solid #101010;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font: 900 29px/.67 Impact, Arial, sans-serif;
+  letter-spacing: -1px;
+  text-align: center;
+  transform: skew(-5deg);
+}
+
+.logo em { font-style: normal; color: #ff5590; }
+.back { font: 700 11px monospace; border-bottom: 2px solid #101010; padding-bottom: 5px; }
+.cart { border: 0; font: 700 11px monospace; background: #101010; color: #fff9e8; padding: 12px; }
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 80px 24px 110px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.kicker { font: 700 11px/1.35 monospace; letter-spacing: .05em; margin: 0 0 22px; }
+.title { font: 900 clamp(55px, 7vw, 100px)/.82 Impact, Arial, sans-serif; letter-spacing: -3px; margin: 0; transform: skew(-3deg); }
+.title span { color: #ff5590; }
+.intro { max-width: 360px; line-height: 1.5; font-size: 16px; }
+
+.form {
+  border: 2px solid #101010;
+  background: #71d0ff;
+  padding: 28px;
+  box-shadow: 10px 10px 0 #101010;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form label { font: 700 10px monospace; text-transform: uppercase; margin-top: 5px; }
+.form input { border: 2px solid #101010; background: #fff9e8; padding: 13px; font: 700 12px monospace; outline: 0; }
+.form input:focus { box-shadow: 4px 4px 0 #ff5590; }
+.submit { border: 2px solid #101010; background: #e7ff40; padding: 15px; margin-top: 10px; font: 700 11px monospace; cursor: pointer; }
+.submit:disabled { opacity: .6; cursor: wait; }
+.switch { font: 11px monospace; text-align: center; margin: 9px 0 0; }
+.switch a { text-decoration: underline; }
+.error, .message { font: 700 11px/1.4 monospace; border: 2px solid #101010; padding: 10px; margin: 6px 0 0; }
+.error { background: #ff5590; }
+.message { background: #e7ff40; }
+
+.footer { border-top: 2px solid #101010; padding: 23px 5vw; display: flex; justify-content: space-between; font: 10px monospace; }
+
+@media (max-width: 700px) {
+  .top { height: 78px; }
+  .logo { font-size: 23px; }
+  .cart { display: none; }
+  .shell { display: block; padding: 58px 8% 90px; }
+  .intro { margin: 25px 0 40px; }
+  .form { padding: 22px; box-shadow: 6px 6px 0 #101010; }
+  .footer { display: block; }
+  .footer span { display: block; margin-top: 10px; }
+}

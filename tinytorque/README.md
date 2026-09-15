@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Supabase setup
+
+Copy `.env.example` to `.env.local` and add the Project URL and publishable key from the Supabase Connect dialog. Never commit `.env.local` or a service-role key.
+
+Phase 2 adds cookie-based Supabase clients for browser and server code plus `proxy.ts` for refreshing sessions. Authentication pages are the next phase.
+
 ## Getting Started
 
 First, run the development server:
