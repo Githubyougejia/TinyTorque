@@ -59,7 +59,7 @@ export default async function AccountPage() {
           </section>
           <section className={styles.accountCard}>
             <p className={styles.cardLabel}>ORDER HISTORY</p>
-            {orders && orders.length > 0 ? <div className={styles.orders}>{orders.map((order) => <article className={styles.order} key={order.id}><div><strong>{order.order_number}</strong><span>{formatDate(order.created_at)} · {order.shipping_city}</span></div><div className={styles.orderRight}><strong>${Number(order.total).toFixed(2)}</strong><span className={styles.status}>{order.status}</span></div></article>)}</div> : <p className={styles.empty}>No orders yet. Your next upgrade belongs here.</p>}
+            {orders && orders.length > 0 ? <div className={styles.orders}>{orders.map((order) => <Link className={styles.order} href={`/account/orders/${order.order_number}`} key={order.id}><div><strong>{order.order_number}</strong><span>{formatDate(order.created_at)} · {order.shipping_city}</span></div><div className={styles.orderRight}><strong>${Number(order.total).toFixed(2)}</strong><span className={styles.status}>{order.status}</span></div></Link>)}</div> : <p className={styles.empty}>No orders yet. Your next upgrade belongs here.</p>}
           </section>
         </div>
       </section>
